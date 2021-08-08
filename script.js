@@ -25,6 +25,7 @@ const posicaoRandomica = () => {
   let mosca = document.createElement('img');
   mosca.src = 'imagens/mosca.png';
   mosca.classList.add(tamanhoAleatorio());
+  mosca.classList.add(ladoAleatorio());
 
   mosca.style.position = 'absolute';
   mosca.style.left = `${positionX}px`;
@@ -46,6 +47,17 @@ const tamanhoAleatorio = () => {
       return 'mosca3';
   }
 
+}
+
+const ladoAleatorio = () => {
+  let classe = Math.ceil(Math.random() * 2);
+
+  switch(classe) {
+    case 1:
+      return 'ladoA';
+    case 2:
+      return 'ladoB';
+  }
 }
 
 window.onload = posicaoRandomica;
