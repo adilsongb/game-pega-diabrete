@@ -1,11 +1,10 @@
 let altura = window.innerHeight;
 let largura = window.innerWidth;
+let vidas = 1;
 
 const ajustaTamanhoTela = () => {
   altura = window.innerHeight;
   largura = window.innerWidth;
-
-  /* console.log(largura, altura); */
 };
 
 ajustaTamanhoTela();
@@ -15,9 +14,16 @@ window.onresize = ajustaTamanhoTela;
 const posicaoRandomica = () => {
 
   //remover mosca anterior caso exista;
-
   if (document.getElementById('mosca')) {
     document.getElementById('mosca').remove();
+    
+    if (vidas <= 3) {
+      document.getElementById(`v${vidas}`).src = 'imagens/coracao_vazio.png';
+      vidas++;
+    } else {
+      alert('Game over');
+    }
+
   }
 
   let positionX = Math.floor(Math.random() * largura) - 90;
@@ -25,9 +31,6 @@ const posicaoRandomica = () => {
 
   positionX = positionX < 0 ? 0 : positionX;
   positionY = positionY < 0 ? 0 : positionY;
-
-  /* console.log('Posição da mosca:');
-  console.log(positionX, positionY); */
 
   let mosca = document.createElement('img');
   mosca.src = 'imagens/mosca.png';
@@ -39,6 +42,10 @@ const posicaoRandomica = () => {
   mosca.style.top = `${positionY}px`;
 
   mosca.id = 'mosca';
+
+  mosca.addEventListener('click', function() {
+    this.remove();
+  });
 
   document.body.appendChild(mosca);
 }
