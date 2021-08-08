@@ -71,6 +71,7 @@ const ladoAleatorio = () => {
 
 window.onload = () => {
 
+  document.body.style.height = `${altura}px`;
   setInterval(posicaoRandomica, 1000);
 
 };
