@@ -3,6 +3,18 @@ let largura = window.innerWidth;
 let vidas = 1;
 let tempo = 10;
 
+let intervaloTempo = 1500;
+
+let nivel = window.location.search.replace('?', '');
+
+if (nivel === 'normal') {
+  intervaloTempo = 1500;
+} else if (nivel === 'intermediario') {
+  intervaloTempo = 1000;
+} else if (nivel === 'dificil') {
+  intervaloTempo = 750;
+}
+
 const ajustaTamanhoTela = () => {
   altura = window.innerHeight;
   largura = window.innerWidth;
@@ -103,6 +115,6 @@ window.onload = () => {
       posicaoRandomica();
     }
 
-  }, 2000);
+  }, intervaloTempo);
 
 };
