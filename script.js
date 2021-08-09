@@ -21,7 +21,7 @@ const posicaoRandomica = () => {
       document.getElementById(`v${vidas}`).src = 'imagens/coracao_vazio.png';
       vidas++;
     } else {
-      alert('Game over');
+      window.location.href = 'game_over.html';
     }
 
   }
