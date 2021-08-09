@@ -1,7 +1,7 @@
 let altura = window.innerHeight;
 let largura = window.innerWidth;
 let vidas = 1;
-let tempo = 10;
+let tempo = 50;
 
 let intervaloTempo = 1500;
 
